@@ -17,6 +17,9 @@ function MovieDetails(props){
             console.log(data);
             setDetailsData(data);
         })  
+        .catch((err)=>{
+           
+        })
     }
    
    useEffect(()=>{
@@ -31,6 +34,7 @@ function MovieDetails(props){
             {
                 deatilsData.cast.map((item)=>(
                   (item.profile_path!==null)&& <div key={item.name}>
+                        <div>{item.title}</div>
                         <div className="flex justify-center"  ><img className="rounded-full text-center" alt={item.name} style={{width:"90px",textAlign:"center"}} src={base_img_url+item.profile_path}></img></div>  
                         <div className="text-gray-50 text-center text-lg" >{item.name}</div>
                         <div className="text-gray-50 text-center text-xs" >{item.character}</div>

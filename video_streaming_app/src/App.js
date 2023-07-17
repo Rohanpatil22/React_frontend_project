@@ -7,6 +7,7 @@ import MovieCard from "./MovieCrad";
  const [movieData, setMovieData]=useState();
  const [urlLink, setUrlLink]=useState("https://api.themoviedb.org/3/trending/all/day?api_key=c72ff33d0282fe5abd382b77ceaff037");
  const [clickdDiv, setClickdDiv]=useState("trending");
+ const [navDisplay,setNavDispplay]=useState(true);
  async function get_info()
   {
    const getdata=await axios.get(urlLink)
@@ -41,17 +42,31 @@ import MovieCard from "./MovieCrad";
 
     
   }
+
+  function getClickInfo(val)
+  {
+    if(val)
+    {
+      setNavDispplay(false);
+    }
+    else{
+      setNavDispplay(true);
+    }
+  }
   return (
     <>
-    <div style={{color:"black"}} className="flex w-1/3 bg-stone-500 p-2 rounded-full mt-4 m-auto gap-10 justify-center">
-     <div style={clickdDiv==="trending"? {color:"white",fontWeight:"bold",cursor:"pointer"}:{color:"black",cursor:"pointer"}} id="trending" onClick={(e)=>(getFilterData(e.target))}>Trending</div>
-     <div style={clickdDiv==="popular"? {color:"white",fontWeight:"bold",cursor:"pointer"}:{color:"black",cursor:"pointer"}} id="popular" onClick={(e)=>(getFilterData(e.target))}>Popular</div>
-     <div style={clickdDiv==="toprated"? {color:"white",fontWeight:"bold",cursor:"pointer"}:{color:"black",cursor:"pointer"}} id="toprated" onClick={(e)=>(getFilterData(e.target))}>Top Rated</div>
-   
-    </div>
+    { navDisplay &&
+      <div style={{color:"black"}} className="flex w-1/3 bg-stone-500 p-2 rounded-full mt-4 m-auto gap-10 justify-center text-xl">
+      <div style={clickdDiv==="trending"? {color:"white",fontWeight:"bold",cursor:"pointer"}:{color:"black",cursor:"pointer"}} id="trending" onClick={(e)=>(getFilterData(e.target))}>Trending</div>
+      <div style={clickdDiv==="popular"? {color:"white",fontWeight:"bold",cursor:"pointer"}:{color:"black",cursor:"pointer"}} id="popular" onClick={(e)=>(getFilterData(e.target))}>Popular</div>
+      <div style={clickdDiv==="toprated"? {color:"white",fontWeight:"bold",cursor:"pointer"}:{color:"black",cursor:"pointer"}} id="toprated" onClick={(e)=>(getFilterData(e.target))}>Top Rated</div>
+    
+     </div>
+    }
+    
     {
       movieData &&
-      <MovieCard movie={movieData}/>
+      <MovieCard movie={movieData} selMovie={getClickInfo}/>
     }
    
       </>
