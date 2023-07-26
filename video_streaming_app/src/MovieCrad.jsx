@@ -14,7 +14,7 @@ function MovieCard(props){
         return(
             <>
             
-             <div className="grid grid-cols-4 gap-10 w-11/12 m-auto bg-zinc-800 p-10">
+             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-11/12 m-auto bg-zinc-800 p-10">
             {
                       
                      props.movie.results.map((item)=>(
@@ -36,9 +36,9 @@ function MovieCard(props){
             <>
                 <div className="text-right mr-10 mt-10"><button onClick={()=>{setMovieId("");props.selMovie(false)}} className="bg-red-500 p-2 w-28 rounded-xl text-neutral-50">Back</button></div>
                 <div className="w-1/2 m-auto text-center mt-6 mb-6 text-4xl font-bold text-amber-200 ">{selMovieName.title}</div>
-                <div className="flex justify-center m-auto w-4/5 gap-8 text-neutral-50 items-center text-lg">
-                    <div><img src={basaseUrl+selMovieName.poster_path}></img></div>
-                    <div className="w-3/5">
+                <div className="w-3/4  m-auto lg:flex lg:w-3/4 lg:justify-center gap-8 text-neutral-50 lg:items-center text-lg">
+                    <div><img className="m-auto md:margin-none w-11/10" src={basaseUrl+selMovieName.poster_path}></img></div>
+                    <div className=" m-auto w-4/5">
                          <div className="m-2"><span className="text-amber-200 font-bold">Language :</span> {selMovieName.original_language.toUpperCase()}</div>
                         <div className="m-2"><span className="text-amber-200 font-bold">Overview :</span> {selMovieName.overview}</div>
                         <div className="m-2"><span className="text-amber-200 font-bold">Popularity :</span> {selMovieName.popularity}</div>
