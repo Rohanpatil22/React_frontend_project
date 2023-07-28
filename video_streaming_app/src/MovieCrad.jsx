@@ -14,11 +14,11 @@ function MovieCard(props){
         return(
             <>
             
-             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-11/12 m-auto bg-zinc-800 p-10">
+             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-10 w-11/12 bg-zinc-800 m-auto pt-10 sm:pl-24 pl-14">
             {
                       
                      props.movie.results.map((item)=>(
-                     <div onClick={()=>{setMovieId(item.id);props.selMovie(true);setSelMovie(item)}} style={{width:"200px"}} key={item.id} className=" text text-neutral-50 rounded-xl">
+                     <div onClick={()=>{setMovieId(item.id);props.selMovie(true);setSelMovie(item)}}  key={item.id} className=" text text-neutral-50 rounded-xl sm:w-4/5 w-24">
                         <img style={{width:"200px"}} className="rounded-xl" src={basaseUrl+item.poster_path} alt={item.title}></img>
                         </div>
                      )) 

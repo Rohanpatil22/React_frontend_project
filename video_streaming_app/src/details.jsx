@@ -46,8 +46,8 @@ function MovieDetails(props){
     {
         return(
             <>
-            <div className="m-20 " ><iframe height={600} width="100%" className=" m-auto top-0 left" src={iframe_src} allowFullScreen /></div>
-            <div className="text-right text-white"><button className="mr-32" onClick={()=>{if(flag){setflag(false)}else{setflag(true)}}}>{!flag &&<FontAwesomeIcon style={{fontSize:"30px"}} icon={faGrip} />}{flag &&<FontAwesomeIcon style={{fontSize:"30px"}} icon={faList} /> }</button></div>
+            <div className="mt-20 w-full m-auto overflow-hidden " ><iframe  width="80%"  className=" m-auto  top-0 left aspect-video " src={iframe_src} allowFullScreen /></div>
+            <div className="text-right text-white mt-10"><button className="sm:mr-32 mr-12" onClick={()=>{if(flag){setflag(false)}else{setflag(true)}}}>{!flag &&<FontAwesomeIcon className="sm:text-4xl text-lg" icon={faGrip} />}{flag &&<FontAwesomeIcon className="sm:text-4xl text-lg" icon={faList} /> }</button></div>
             <div   className={flag? "grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 w-11/12 m-auto bg-zinc-800 p-10":"m-auto gap-10 bg-zinc-800 p-10"}>
             { flag &&
                 deatilsData.cast.map((item)=>(
